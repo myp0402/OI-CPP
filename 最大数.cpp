@@ -18,11 +18,11 @@ struct SegementTree{
 
 void build(int p,int l,int r){
     l(p)=l,r(p)=r;
-    if(l==r){
-        mmax(p)=a[l];
-        ssum(p)=a[l];
-        return;
-    }
+    // if(l==r){
+    //     mmax(p)=a[l];
+    //     ssum(p)=a[l];
+    //     return;
+    // }
     int mid=(l+r)/2;
     build(p*2,l,mid);
     build(p*2+1,mid+1,r);
@@ -84,16 +84,15 @@ signed main(){
 
     scanf("%d%lld",&M,&D);
     // for(int i=1;i<=n;i++) scanf("%d",&a[i]);
-    // build(1,1,n);
+    build(1,1,M);
     for(int i=0;i<M;i++){
         char op;
         int L;
-        debug();
         scanf("%c",&op);
         
         if(op=='Q'){
             scanf("%d",&L);
-            // _t=query_max(1,1,L);
+            _t=query_max(1,1,L);
             printf("%lld\n",_t);
         }
         else{
